@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather🌤️</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="app-container">
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            class="search-input"
+            id="search-input"
+            autofocus="on"
+            autocomplete="off"
+            placeholder="Enter your city"
+          />
+          <input
+            type="submit"
+            class="search-button"
+            id="search-button"
+            value="🔍"
+          />
+        </form>
+        <button class="current-location" id="current-location">Current</button>
+
+        <div class="row">
+          <div class="col-4">
+            <h1 id="city"></h1>
+            <ul>
+              <li><span id="month"></span> <span id="date"></span></li>
+              <li>
+                <span id="week-day"></span>
+                <span id="hours"></span>
+                <span>:</span>
+                <span id="minutes"></span>
+              </li>
+              <li>
+                <span class="degree" id="temperature">19</span>
+                <span class="units" id="units">
+                  <a href="#" id="celcius">℃</a>
+                  |
+                  <a href="#" id="fahrenheit">℉</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-4">
+            <img
+              src="images/w3.png"
+              alt="Weather image"
+              class="big-weather-image"
+            />
+            <p class="weather-name" id="weather-name">Partly cloudy</p>
+          </div>
+
+          <div class="col-4 right-col">
+            <ul>
+              <li>Humidity: <span id="humidity"></span></li>
+              <li>Wind: <span id="wind"></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col day-container">
+            <p>Sat</p>
+            <img
+              src="images/w2.png"
+              alt="Weather image"
+              class="small-weather-image"
+            />
+            <p>20°</p>
+          </div>
+
+          <div class="col day-container">
+            <p>Sun</p>
+            <img
+              src="images/w4.png"
+              alt="Weather image"
+              class="small-weather-image"
+            />
+            <p>19°</p>
+          </div>
+
+          <div class="col day-container">
+            <p>Mon</p>
+            <img
+              src="images/w1.png"
+              alt="Weather image"
+              class="small-weather-image"
+            />
+            <p>21°</p>
+          </div>
+
+          <div class="col day-container">
+            <p>Tue</p>
+            <img
+              src="images/w1.png"
+              alt="Weather image"
+              class="small-weather-image"
+            />
+            <p>22°</p>
+          </div>
+
+          <div class="col day-container">
+            <p>Sun</p>
+            <img
+              src="images/w4.png"
+              alt="Weather image"
+              class="small-weather-image"
+            />
+            <p>19°</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/scripts.js"></script>
+  </body>
+</html>
