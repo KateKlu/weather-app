@@ -15,7 +15,7 @@
   box-shadow: 1px 1px 5px #adbbc9;
   border-radius: 5px;
   border: none;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: #2b679b;
 }
 
@@ -32,9 +32,9 @@
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 500;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -67,7 +67,8 @@ a#fahrenheit {
 p.weather-name {
   font-weight: 500;
   font-size: 16px;
-  margin: -5px 0 10px 0;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .big-weather-image {
@@ -77,7 +78,7 @@ p.weather-name {
 }
 
 .right-col {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .day-container {
