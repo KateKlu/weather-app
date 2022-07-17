@@ -1,11 +1,14 @@
 .app-container {
+  max-width: 600px;
+  min-width: 480px;
+  margin: 20px auto;
+}
+
+.weather-app {
   background: linear-gradient(#4ab6f2, #fff);
   box-shadow: 1px 1px 5px #e7e9ec;
   border-radius: 10px;
   color: #fff;
-  max-width: 600px;
-  min-width: 480px;
-  margin: 20px auto;
   padding: 15px;
 }
 
@@ -104,6 +107,6 @@ p.forecast {
 }
 
 p.gitHubLink {
-  font-size: 14px;
-  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
 }
