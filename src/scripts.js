@@ -61,7 +61,13 @@ function showWeather(response) {
     "#wind"
   ).innerHTML = `${response.data.wind.speed} km/h`;
   document.querySelector("#weather-name").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
+  document
+    .querySelector("#big-weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function changeCity(event) {

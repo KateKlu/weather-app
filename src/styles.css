@@ -72,13 +72,17 @@ p.weather-name {
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: -25px;
 }
 
-.big-weather-image {
+.weather-name:first-letter {
+  text-transform: capitalize;
+}
+
+.big-weather-icon {
   display: block;
   margin: 0 auto;
-  max-width: 90%;
+  min-width: 90%;
 }
 
 .right-col {
