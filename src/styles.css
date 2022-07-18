@@ -62,11 +62,12 @@ span.units {
   top: -19px;
 }
 
-a#celcius,
-a#fahrenheit {
+a.non-active {
   color: #fff;
   text-decoration: none;
+  cursor: default;
 }
+
 p.weather-name {
   font-weight: 500;
   font-size: 16px;

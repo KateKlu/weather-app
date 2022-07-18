@@ -49,9 +49,8 @@ function showDate() {
 }
 
 function showWeather(response) {
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celciusTemp = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML = Math.round(celciusTemp);
   document.querySelector(
     "#city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
@@ -93,18 +92,18 @@ function checkPosition(event) {
   navigator.geolocation.getCurrentPosition(getMyPosition);
 }
 
-/*function showCelciusTemperature() {
-  let celciusTemp = 19;
-  let degree = document.querySelector("#temperature");
-  degree.innerHTML = `${celciusTemp}`;
+function showCelciusTemperature() {
+  fahrenheitLink.classList.remove("non-active");
+  celciusLink.classList.add("non-active");
+  document.querySelector("#temperature").innerHTML = Math.round(celciusTemp);
 }
 
 function showFahrenheitTemperature() {
-  let celciusTemp = 19;
+  fahrenheitLink.classList.add("non-active");
+  celciusLink.classList.remove("non-active");
   let fahrenheitTemp = Math.round(celciusTemp * 1.8 + 32);
-  let degree = document.querySelector("#temperature");
-  degree.innerHTML = `${fahrenheitTemp}`;
-}*/
+  document.querySelector("#temperature").innerHTML = fahrenheitTemp;
+}
 
 showDate();
 checkPosition();
@@ -115,8 +114,10 @@ searchForm.addEventListener("submit", changeCity);
 let currentLocattionButton = document.querySelector("#current-location");
 currentLocattionButton.addEventListener("click", checkPosition);
 
-/*let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", showCelciusTemperature);
+let celciusTemp = null;
 
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", showFahrenheitTemperature); */
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", showCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
