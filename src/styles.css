@@ -89,26 +89,22 @@ p.weather-name {
   margin-top: 50px;
 }
 
-.day-container {
+.forecast-day-container {
   color: #4ab6f2;
   background: #fff;
   box-shadow: 1px 1px 5px #e7e9ec;
   border-radius: 5px;
   padding: 5px 0;
   margin: 0 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .small-weather-image {
   display: block;
-  margin: 0 auto;
-  max-width: 50%;
-}
-
-p.forecast {
-  margin: 0;
-  text-align: center;
-  font-weight: 500;
-  font-size: 16px;
+  margin: -10px auto;
+  max-width: 100%;
 }
 
 p.gitHubLink {
