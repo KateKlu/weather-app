@@ -111,8 +111,41 @@ function showFahrenheitTemperature() {
   document.querySelector("#temperature").innerHTML = fahrenheitTemp;
 }
 
+function showForecast() {
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  
+      <div class="col">
+        <div class="forecast-day-container">
+          ${day}
+          <img
+            src="http://openweathermap.org/img/wn/10d@2x.png"
+            alt="Weather image"
+            class="small-weather-image"
+          />
+          20°
+        </div>
+      </div>`;
+  });
+
+  forecastHTML =
+    forecastHTML +
+    `
+  </div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 showDate();
 checkPosition();
+showForecast();
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", changeCity);
