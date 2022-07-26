@@ -95,7 +95,7 @@ p.weather-name {
   box-shadow: 1px 1px 5px #e7e9ec;
   border-radius: 5px;
   padding: 5px 0;
-  margin: 0 12px;
+  margin: 0 -5px;
   text-align: center;
   font-weight: 500;
   font-size: 16px;
