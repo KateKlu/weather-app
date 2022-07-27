@@ -1,8 +1,8 @@
 function showDate() {
   let now = new Date();
-  let date = now.getDate();
+  // let date = now.getDate();
   let day = now.getDay();
-  let month = now.getMonth();
+  //  let month = now.getMonth();
   let minutes = now.getMinutes();
   let hours = now.getHours();
   let weekDays = [
@@ -15,24 +15,7 @@ function showDate() {
     "Satyrday",
   ];
   let dayName = weekDays[day];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let monthName = months[month];
 
-  document.querySelector("#month").innerHTML = `${monthName}`;
-  document.querySelector("#date").innerHTML = `${date}`;
   document.querySelector("#week-day").innerHTML = `${dayName}`;
   let currentHours = document.querySelector("#hours");
   if (hours < 10) {
@@ -73,13 +56,13 @@ function showForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index > 0 && index < 7) {
       forecastCelciusTemp[index] = forecastDay.temp.day;
 
       forecastHTML =
         forecastHTML +
         `  
-      <div class="col-2">
+      <div class="col">
         <div class="forecast-day-container">
           ${formateForecastDate(forecastDay.dt)}
           <img
@@ -122,13 +105,13 @@ function showWeather(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity} %`;
-  document.querySelector(
-    "#wind"
-  ).innerHTML = `${response.data.wind.speed} km/h`;
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )} km/h`;
   document.querySelector("#weather-name").innerHTML =
     response.data.weather[0].description;
   document
-    .querySelector("#big-weather-icon")
+    .querySelector("#main-weather-icon")
     .setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

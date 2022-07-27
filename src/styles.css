@@ -1,6 +1,5 @@
 .app-container {
-  max-width: 600px;
-  min-width: 480px;
+  max-width: 500px;
   margin: 20px auto;
 }
 
@@ -9,7 +8,7 @@
   box-shadow: 1px 1px 5px #e7e9ec;
   border-radius: 10px;
   color: #fff;
-  padding: 15px;
+  padding: 15px 10px;
 }
 
 .search-input,
@@ -27,7 +26,7 @@
 }
 
 .search-input {
-  min-width: 81%;
+  min-width: 83%;
 }
 
 .search-input:focus-visible {
@@ -35,14 +34,19 @@
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 14px;
 }
 
 ul {
   margin: 0;
   padding: 0;
+  padding-left: 15px;
 }
 
 li {
@@ -52,14 +56,15 @@ li {
 }
 
 span.degree {
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 100%;
+  font-size: 75px;
+  font-weight: 500;
+  line-height: 75%;
 }
 
 span.units {
+  font-size: 14px;
   position: relative;
-  top: -19px;
+  top: -44px;
 }
 
 a.non-active {
@@ -68,25 +73,21 @@ a.non-active {
   cursor: default;
 }
 
-p.weather-name {
+.weather-name {
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  margin-top: -25px;
+  margin-top: -27px;
 }
 
-.weather-name:first-letter {
+.weather-name::first-letter {
   text-transform: capitalize;
 }
 
-.big-weather-icon {
+.main-weather-icon {
   display: block;
   margin: 0 auto;
-  min-width: 90%;
-}
-
-.right-col {
-  margin-top: 50px;
+  margin-top: -30px;
 }
 
 .forecast-day-container {
@@ -95,7 +96,7 @@ p.weather-name {
   box-shadow: 1px 1px 5px #e7e9ec;
   border-radius: 5px;
   padding: 5px 0;
-  margin: 0 -5px;
+  margin: 0;
   text-align: center;
   font-weight: 500;
   font-size: 16px;

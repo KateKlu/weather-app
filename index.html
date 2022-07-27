@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather🌤️</title>
+    <title>Weather</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -32,44 +33,46 @@
               class="search-button"
               id="search-button"
               value="🔍"
+              title="Search"
             />
           </form>
-          <button class="current-location" id="current-location">
-            Current
+          <button
+            class="current-location"
+            id="current-location"
+            title="Current location"
+          >
+            📍
           </button>
           <h1 id="city"></h1>
+          <p>
+            Last updated:
+            <span id="week-day"></span>
+            <span id="hours"></span>
+            <span>:</span>
+            <span id="minutes"></span>
+          </p>
+
           <div class="row">
             <div class="col-4">
-              <ul>
-                <li><span id="month"></span> <span id="date"></span></li>
-                <li>
-                  <span id="week-day"></span>
-                  <span id="hours"></span>
-                  <span>:</span>
-                  <span id="minutes"></span>
-                </li>
-                <li>
-                  <span class="degree" id="temperature"></span>
-                  <span class="units" id="units">
-                    <a href="#" class="non-active" id="celcius">℃</a>
-                    |
-                    <a href="#" id="fahrenheit">℉</a>
-                  </span>
-                </li>
-              </ul>
+              <span class="degree" id="temperature"></span>
+              <span class="units" id="units">
+                <a href="#" class="non-active" id="celcius">℃</a>
+                |
+                <a href="#" id="fahrenheit">℉</a>
+              </span>
             </div>
 
             <div class="col-4">
               <img
                 src="#"
                 alt="Weather image"
-                class="big-weather-icon"
-                id="big-weather-icon"
+                class="main-weather-icon"
+                id="main-weather-icon"
               />
               <p class="weather-name" id="weather-name"></p>
             </div>
 
-            <div class="col-4 right-col">
+            <div class="col-4">
               <ul>
                 <li>Humidity: <span id="humidity"></span></li>
                 <li>Wind: <span id="wind"></span></li>
