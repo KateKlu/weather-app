@@ -48,16 +48,24 @@ function showDate() {
   }
 }
 
+function formatUnitsLinkForCelcius() {
+  fahrenheitLink.classList.remove("non-active");
+  celciusLink.classList.add("non-active");
+}
+
+function formatUnitsLinkForFahrenheit() {
+  fahrenheitLink.classList.add("non-active");
+  celciusLink.classList.remove("non-active");
+}
+
 function formateForecastDate(timeStamp) {
   let date = new Date(timeStamp * 1000);
   let day = date.getDay();
   let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
   return weekDays[day];
 }
 
 function showForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -66,6 +74,8 @@ function showForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      forecastCelciusTemp[index] = forecastDay.temp.day;
+
       forecastHTML =
         forecastHTML +
         `  
@@ -79,7 +89,9 @@ function showForecast(response) {
             alt="Weather image"
             class="small-weather-image"
           />
-          ${Math.round(forecastDay.temp.day)}°
+          <span id=forecastTemp${index}>${Math.round(
+          forecastDay.temp.day
+        )}</span>°
         </div>
       </div>`;
     }
@@ -98,10 +110,10 @@ function getForecast(coordinates) {
   let apiLink = `https://api.openweathermap.org/data/2.5/onecall?`;
   let apiUrl = `${apiLink}lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
-  console.log(apiUrl);
 }
 
 function showWeather(response) {
+  formatUnitsLinkForCelcius();
   celciusTemp = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(celciusTemp);
   document.querySelector(
@@ -154,16 +166,26 @@ function checkPosition(event) {
 }
 
 function showCelciusTemperature() {
-  fahrenheitLink.classList.remove("non-active");
-  celciusLink.classList.add("non-active");
+  formatUnitsLinkForCelcius();
   document.querySelector("#temperature").innerHTML = Math.round(celciusTemp);
+
+  forecastCelciusTemp.forEach(function (celcTemp, index) {
+    document.querySelector(`#forecastTemp${index}`).innerHTML =
+      Math.round(celcTemp);
+  });
 }
 
 function showFahrenheitTemperature() {
-  fahrenheitLink.classList.add("non-active");
-  celciusLink.classList.remove("non-active");
-  let fahrenheitTemp = Math.round(celciusTemp * 1.8 + 32);
-  document.querySelector("#temperature").innerHTML = fahrenheitTemp;
+  formatUnitsLinkForFahrenheit();
+  document.querySelector("#temperature").innerHTML = Math.round(
+    celciusTemp * 1.8 + 32
+  );
+
+  forecastCelciusTemp.forEach(function (celcTemp, index) {
+    document.querySelector(`#forecastTemp${index}`).innerHTML = Math.round(
+      celcTemp * 1.8 + 32
+    );
+  });
 }
 
 showDate();
@@ -176,6 +198,7 @@ let currentLocattionButton = document.querySelector("#current-location");
 currentLocattionButton.addEventListener("click", checkPosition);
 
 let celciusTemp = null;
+let forecastCelciusTemp = [];
 
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", showCelciusTemperature);
