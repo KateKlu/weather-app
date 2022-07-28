@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!--Adding Bootstrap-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+
+    <!--Adding Axios-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
   </head>
@@ -19,6 +23,7 @@
     <div class="container">
       <div class="app-container">
         <div class="weather-app">
+          <!--Display search line-->
           <form class="search-form" id="search-form">
             <input
               type="search"
@@ -44,6 +49,7 @@
             📍
           </button>
 
+          <!--Display city name and cyrrent date-->
           <h1 id="city"></h1>
           <p>
             Last updated:
@@ -53,6 +59,7 @@
             <span id="minutes"></span>
           </p>
 
+          <!--Display main weather info-->
           <div class="row">
             <div class="col-4">
               <span class="degree" id="temperature"></span>
@@ -81,6 +88,7 @@
             </div>
           </div>
 
+          <!--Display weather forecast-->
           <div class="forecast" id="forecast"></div>
         </div>
 
