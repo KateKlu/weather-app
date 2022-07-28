@@ -1,5 +1,6 @@
 .app-container {
   max-width: 500px;
+  min-width: 500px;
   margin: 20px auto;
 }
 
@@ -26,7 +27,7 @@
 }
 
 .search-input {
-  min-width: 83%;
+  min-width: 84%;
 }
 
 .search-input:focus-visible {
