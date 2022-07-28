@@ -57,15 +57,16 @@ li {
 }
 
 span.degree {
-  font-size: 75px;
+  font-size: 70px;
   font-weight: 500;
-  line-height: 75%;
+  line-height: 70%;
 }
 
 span.units {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
   position: relative;
-  top: -44px;
+  top: -41px;
 }
 
 a.non-active {
