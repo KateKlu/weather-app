@@ -80,7 +80,7 @@ a.non-active {
   margin-top: -27px;
 }
 
-.weather-name::first-letter {
+.weather-name:first-letter {
   text-transform: capitalize;
 }
 

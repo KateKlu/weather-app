@@ -117,17 +117,21 @@ function showWeather(response) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
 
+  showDate();
   getForecast(response.data.coord);
+}
+function makeCityWeatherLink(city) {
+  let apiKey = "ed55b36e362d8733f7d859247cedeaf2";
+  let apiLink = "https://api.openweathermap.org/data/2.5/weather?";
+  let weatherLink = `${apiLink}q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(weatherLink).then(showWeather);
 }
 
 function changeCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input");
   if (city.value) {
-    let apiKey = "ed55b36e362d8733f7d859247cedeaf2";
-    let apiLink = "https://api.openweathermap.org/data/2.5/weather?";
-    let weatherLink = `${apiLink}q=${city.value}&units=metric&appid=${apiKey}`;
-    axios.get(weatherLink).then(showWeather);
+    makeCityWeatherLink(city.value);
   } else {
     alert(`Enter city name`);
   }
@@ -136,16 +140,26 @@ function changeCity(event) {
 function getMyPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-
   let apiKey = "ed55b36e362d8733f7d859247cedeaf2";
   let apiLink = "https://api.openweathermap.org/data/2.5/weather?";
   let weatherLink = `${apiLink}lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
   axios.get(weatherLink).then(showWeather);
 }
 
+function errorPosition() {
+  let city = document.querySelector("#search-input");
+  if (city.value) {
+    makeCityWeatherLink(city.value);
+  } else {
+    makeCityWeatherLink(`kharkiv`);
+  }
+  alert(
+    "Allow the app to find your location or enter your city into the search field"
+  );
+}
+
 function checkPosition(event) {
-  navigator.geolocation.getCurrentPosition(getMyPosition);
+  navigator.geolocation.getCurrentPosition(getMyPosition, errorPosition);
 }
 
 function showCelciusTemperature() {
@@ -171,7 +185,6 @@ function showFahrenheitTemperature() {
   });
 }
 
-showDate();
 checkPosition();
 
 let searchForm = document.querySelector("#search-form");
